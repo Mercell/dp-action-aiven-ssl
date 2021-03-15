@@ -12,7 +12,6 @@ jobs:
     - uses: actions/checkout@v2
     - id: foo
       uses: actions/dp-action-aiven-ssl@v1
-      working-directory: ./directory-to-add-files-to
       with:
         service_key_path: "/serivce/key"
         service_cert_path: "/service/cert"
@@ -22,4 +21,5 @@ jobs:
         aws_acces_key_id: "SOME AWS ACCESS KEY ID"
         aws_secret_access_key: "SOME SECRET ACCESS KEY"
         aws_default_region: "eu-central-1"
+        working_directory: ./directory-to-add-files-to
 ```
