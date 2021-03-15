@@ -38,7 +38,7 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: ./entrypoint.sh
+    - run: ${{ github.action_path }}/entrypoint.sh
       working-directory: ${{ inputs.working_directory }}
       shell: bash
       env: 
