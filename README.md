@@ -1,6 +1,6 @@
 # dp-action-aiven-ssl
 
-This action generates keystore and truststore in the machine running a github action, available for your dockerfile to pick up certificates and copy them to it's image.
+This action generates keystore and truststore on the github action machine from ssm parameters, available for your dockerfile to pick up and copy them to it's image.
 
 Example: 
 ```
