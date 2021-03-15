@@ -1,8 +1,8 @@
-key_response=$(aws ssm get-parameter --name ${SERVICE_KEY_PATH} --query "Parameter.Value")
+key_response=$(aws ssm get-parameter --name ${SERVICE_KEY_PATH} --with-decryption --query "Parameter.Value")
 
-cert_response=$(aws ssm get-parameter --name ${SERVICE_CERT_PATH} --query "Parameter.Value")
+cert_response=$(aws ssm get-parameter --name ${SERVICE_CERT_PATH} --with-decryption --query "Parameter.Value")
 
-ca_response=$(aws ssm get-parameter --name ${CA_PATH} --query "Parameter.Value")
+ca_response=$(aws ssm get-parameter --name ${CA_PATH} --with-decryption --query "Parameter.Value")
 
 keystore_password_response=$(aws ssm get-parameter --name ${KEYSTORE_PASSWORD_PATH} --with-decryption --query "Parameter.Value")
 
