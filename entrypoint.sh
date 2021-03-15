@@ -9,13 +9,10 @@ keystore_password_response=$(aws ssm get-parameter --name ${KEYSTORE_PASSWORD_PA
 truststore_password_response=$(aws ssm get-parameter --name ${TRUSTSTORE_PASSWORD_PATH} --with-decryption --query "Parameter.Value")
 
 echo -e "$key_response" | sed -e 's/^"//' -e 's/"$//' > service.key
-echo "$(cat service.key)"
 
 echo -e "$cert_response" | sed -e 's/^"//' -e 's/"$//' > service.cert
-echo "$(cat service.cert)"
 
 echo -e "$ca_response" | sed -e 's/^"//' -e 's/"$//' > ca.pem
-echo "$(cat ca.pem)"
 
 KEYSTORE_PASSWORD=$(sed -e 's/^"//' -e 's/"$//' <<< $keystore_password_response)
 
@@ -25,3 +22,5 @@ openssl pkcs12 -export -inkey service.key -in service.cert -out client.keystore.
 keytool -import -file ca.pem -alias CA -keystore client.truststore.jks -storepass ${TRUSTSTORE_PASSWORD} -noprompt
 
 rm service.key service.cert ca.pem
+
+ls
