@@ -38,7 +38,8 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - runs: ./create-credentials.sh
+    - run: ./create-credentials.sh
+      working-directory: ${{ inputs.working_directory }}
       shell: bash
       env: 
           AWS_ACCESS_KEY_ID: ${{ inputs.aws_access_key_id }}
