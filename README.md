@@ -12,6 +12,7 @@ jobs:
     - uses: actions/checkout@v2
     - id: foo
       uses: actions/dp-action-aiven-ssl@v1
+      working-directory: ./directory-to-add-files-to
       with:
         service_key_path: "/serivce/key"
         service_cert_path: "/service/cert"
