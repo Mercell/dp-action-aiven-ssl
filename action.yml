@@ -38,7 +38,7 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: ./create-credentials.sh
+    - run: ./entrypoint.sh
       working-directory: ${{ inputs.working_directory }}
       shell: bash
       env: 
