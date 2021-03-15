@@ -25,6 +25,9 @@ inputs:
   aws_default_region:
     description: 'AWS DEFAULT REGION'
     required: true
+  working_directory:
+    description: 'Directory in which files will be put'
+    required: true
 outputs:
   keystore_location:
     description: "Path to keystore"
