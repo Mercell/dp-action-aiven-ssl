@@ -1,7 +1,7 @@
 # dp-action-aiven-ssl
 
 Example: 
-
+```
 on: [push]
 
 jobs:
@@ -22,3 +22,4 @@ jobs:
         aws_acces_key_id: "SOME AWS ACCESS KEY ID"
         aws_secret_access_key: "SOME SECRET ACCESS KEY"
         aws_default_region: "eu-central-1"
+```
