@@ -1,0 +1,48 @@
+name: 'Create SSH credentials'
+description: 'Action to generate keystore and truststore for aiven.'
+inputs:
+  service_key_path:
+    description: 'SSM path to service.key text.'
+    required: true
+  service_cert_path: 
+    description: 'SSM path to service.cert text.'
+    required: true
+  keystore_password_path: 
+    description: 'SSM path to keystore password.'
+    required: true
+  truststore_password_path: 
+    description: 'SSM path to truststore password'
+    required: true
+  service_ca_path:  
+    description: 'SSM path to ca.pem text.'
+    required: true
+  aws_access_key_id:
+    description: 'AWS ACCESS KEY ID'
+    required: true
+  aws_secret_access_key:
+    description: 'AWS SECRET ACCESS KEY'
+    required: true
+  aws_default_region:
+    description: 'AWS DEFAULT REGION'
+    required: true
+outputs:
+  keystore_location:
+    description: "Path to keystore"
+    value: '${{ inputs.destination_directory }}/client.keystore.p12'
+  truststore_location:
+    description: "Path to truststore"
+    value: '${{ inputs.destination_directory }}/client.truststore.jks'
+runs:
+  using: "composite"
+  steps:
+    - runs: ./create-credentials.sh
+      shell: bash
+      env: 
+          AWS_ACCESS_KEY_ID: ${{ inputs.aws_access_key_id }}
+          AWS_SECRET_ACCESS_KEY: ${{ inputs.aws_secret_access_key }}
+          AWS_DEFAULT_REGION: ${{ inputs.aws_default_region }}
+          SERVICE_CERT_PATH: ${{ inputs.service_cert_path }}
+          SERVICE_KEY_PATH: ${{ inputs.service_key_path }}
+          CA_PATH: ${{ inputs.service_ca_path }}
+          KEYSTORE_PASSWORD_PATH: ${{ inputs.keystore_password_path }}
+          TRUSTSTORE_PASSWORD_PATH: ${{ inputs.truststore_password_path }}
