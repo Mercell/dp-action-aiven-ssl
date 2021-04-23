@@ -31,13 +31,6 @@ inputs:
   working_directory:
     description: 'Directory in which files will be put'
     required: true
-outputs:
-  keystore_location:
-    description: "Path to keystore"
-    value: '${{ inputs.working_directory }}/client.keystore.p12'
-  truststore_location:
-    description: "Path to truststore"
-    value: '${{ inputs.working_directory }}/client.truststore.jks'
 runs:
   using: "composite"
   steps:
