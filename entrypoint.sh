@@ -22,5 +22,3 @@ openssl pkcs12 -export -inkey service.key -in service.cert -out client.keystore.
 keytool -import -file ca.pem -alias CA -keystore client.truststore.jks -storepass ${TRUSTSTORE_PASSWORD} -noprompt
 
 rm service.key service.cert ca.pem
-
-ls
