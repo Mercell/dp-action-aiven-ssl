@@ -48,7 +48,7 @@ runs:
           AWS_ACCESS_KEY_ID: ${{ inputs.aws_access_key_id }}
           AWS_SECRET_ACCESS_KEY: ${{ inputs.aws_secret_access_key }}
           AWS_DEFAULT_REGION: ${{ inputs.aws_default_region }}
-          AWS_ROLE_ARN: ${{ inpits.aws_role_to_assume }}
+          AWS_ROLE_ARN: ${{ inputs.aws_role_to_assume }}
           SERVICE_CERT_PATH: ${{ inputs.service_cert_path }}
           SERVICE_KEY_PATH: ${{ inputs.service_key_path }}
           CA_PATH: ${{ inputs.service_ca_path }}
