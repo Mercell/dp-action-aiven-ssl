@@ -41,19 +41,14 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ inputs.aws_access_key_id }}
-        aws-secret-access-key: ${{ inputs.aws_secret_access_key }}
-        aws-region: ${{ inputs.aws_default_region }}
-        role-to-assume: ${{ inputs.aws_role_to_assume }}
-        role-duration-seconds: 1200
-        role-skip-session-tagging: true
     - run: ${{ github.action_path }}/entrypoint.sh
       working-directory: ${{ inputs.working_directory }}
       shell: bash
       env: 
+          AWS_ACCESS_KEY_ID: ${{ inputs.aws_access_key_id }}
+          AWS_SECRET_ACCESS_KEY: ${{ inputs.aws_secret_access_key }}
+          AWS_DEFAULT_REGION: ${{ inputs.aws_default_region }}
+          AWS_ROLE_ARN: ${{ inpits.aws_role_to_assume }}
           SERVICE_CERT_PATH: ${{ inputs.service_cert_path }}
           SERVICE_KEY_PATH: ${{ inputs.service_key_path }}
           CA_PATH: ${{ inputs.service_ca_path }}

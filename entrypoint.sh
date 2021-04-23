@@ -1,3 +1,5 @@
+aws sts assume-role --role-arn ${AWS_ROLE_ARN} --role-session-name dp-action-aiven-ssl
+
 key_response=$(aws ssm get-parameter --name ${SERVICE_KEY_PATH} --with-decryption --query "Parameter.Value")
 
 cert_response=$(aws ssm get-parameter --name ${SERVICE_CERT_PATH} --with-decryption --query "Parameter.Value")
