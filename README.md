@@ -20,8 +20,5 @@ jobs:
         service_ca_path: "/service/ca"
         keystore_password_path: "/keystore/password"
         truststore_password_path: "/truststore/password"
-        aws_acces_key_id: "SOME AWS ACCESS KEY ID"
-        aws_secret_access_key: "SOME SECRET ACCESS KEY"
-        aws_default_region: "eu-central-1"
         working_directory: ./directory-to-add-files-to
 ```
